@@ -1,5 +1,8 @@
 # Base62
 
+[![GoDoc](https://godoc.org/github.com/yihleego/base62?status.svg)](https://godoc.org/github.com/yihleego/base62)
+[![Go Report Card](https://goreportcard.com/badge/github.com/yihleego/base62)](https://goreportcard.com/report/github.com/yihleego/base62)
+
 The base62 encoding scheme uses 62 characters. The characters consist of the capital letters A-Z, the lower case letters a-z and the numbers 0–9. It is a binary-to-text encoding schemes that represent binary data in an ASCII string format.
 
 ## Base62 Alphabet
