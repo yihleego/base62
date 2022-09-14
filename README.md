@@ -35,6 +35,47 @@ See: [Wikipedia Base62](https://en.wikipedia.org/wiki/Base62)
 
 ### Encode
 
+```go
+src := []byte("Hello, World!")
+encoded := base62.StdEncoding.Encode(src)
+// {49, 119, 74, 102, 114, 122, 118, 100, 98, 116, 88, 85, 79, 108, 85, 106, 85, 102}
+```
+
+### EncodeToString
+
+```go
+src := []byte("Hello, World!")
+encoded := base62.StdEncoding.EncodeToString(src)
+// 1wJfrzvdbtXUOlUjUf
+```
+
 ### Decode
 
+```go
+src := []byte{49, 119, 74, 102, 114, 122, 118, 100, 98, 116, 88, 85, 79, 108, 85, 106, 85, 102}
+decoded, err := base62.StdEncoding.Decode(src)
+// {72, 101, 108, 108, 111, 44, 32, 87, 111, 114, 108, 100, 33}
+str := string(decoded)
+// Hello, World!
+```
+
+### DecodeString
+
+```go
+src := "1wJfrzvdbtXUOlUjUf"
+decoded, err := base62.StdEncoding.DecodeString(src)
+// {72, 101, 108, 108, 111, 44, 32, 87, 111, 114, 108, 100, 33}
+str := string(decoded)
+// Hello, World!
+```
+
 ### Custom alphabet
+
+```go
+// 62-byte string
+encoding := base62.NewEncoding("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789")
+
+src := []byte("Hello, World!")
+encoded := encoding.Encode(src)
+// {66, 54, 84, 112, 49, 57, 53, 110, 108, 51, 104, 101, 89, 118, 101, 116, 101, 112}
+```
